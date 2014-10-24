@@ -5,7 +5,14 @@
 <head>
 <meta charset="utf-8">
 <title>Hello...</title>
-<script data-main="scripts/main" src="scripts/vendors/require.js"></script>
+<script type="text/javascript">
+	var Smoothie = {
+			'main':null,
+			'paths': ['scripts/helpers/'],
+			'preloaded': new Object()
+		};
+</script>
+<script data-main="text/javascript" src="scripts/vendors/smoothie.js"></script>
 <style type="text/css">
 #mainContent {
 	font-family: Arial, Helvetica, sans-serif;
