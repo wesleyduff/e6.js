@@ -1,6 +1,6 @@
 LOW DOWN
 
-To get you started, we included a small index.html file
+To get you started, I included a small index.html file
 
 1) Open the index.html file and open your dev tools and switch to console.
 
