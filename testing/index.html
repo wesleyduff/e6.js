@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit basic example</title>
+  
+  <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
+  <script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
+  <script type="text/javascript" src="../scripts/vendors/qunit.js"></script>
+  <script type="text/javascript">
+	var Smoothie = {
+			'main':null,
+			'paths': ['../scripts/helpers/'],
+			'preloaded': new Object()
+		};
+</script>
+<script data-main="text/javascript" src="../scripts/vendors/smoothie.js"></script>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script>
+    /*
+    set up e6.js for testing
+    */
+    var edMod = require('e6'),
+    //Create new object from module
+    _e6 = Object.create(edMod.e6());
+    
+    /* init function test */
+    QUnit.test("init should produce an array", function( assert ){
+      var value = _e6.init(1,2,3);
+      assert.equal( value.length, 3, "Array length should equal 3" );
+    });
+      
+    QUnit.test( "a basic test example", function( assert ) {
+      var value = "hello";
+      assert.equal( value, "hello", "We expect value to be hello" );
+    });
+    
+  </script>
+</body>
+</html>
