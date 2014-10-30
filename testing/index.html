@@ -66,6 +66,16 @@
       assert.deepEqual( value, ["4","5","8","12"], "We expect the returned array to be void of duplicates" );
     });
     
+    QUnit.test( "should return an array with parameters givin", function( assert ) {
+      assert.expect( 5 );
+      var value = Array.of([1,2], "hello", {test: 'letter'});
+      assert.ok(typeof value === 'object' && value[0] != undefined, "The array is an object which is an array")
+      assert.equal(value.length, 3, "The returned array should have a length of 3");
+      assert.equal(value[0][0], 1, "The multidimensional array of the first and first child should be 1");
+      assert.deepEqual(typeof value[1], "string", "The second item in the array should be a string");
+      assert.deepEqual(typeof value[2], "object", "The last item should be an object");
+    });
+    
   </script>
 </body>
 </html>
