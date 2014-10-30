@@ -27,16 +27,30 @@
     var edMod = require('e6'),
     //Create new object from module
     _e6 = Object.create(edMod.e6());
+    _e6.init();
     
-    /* init function test */
+    
+    
+    
+    
+    /* init function test 
     QUnit.test("init should produce an array", function( assert ){
       var value = _e6.init(1,2,3);
       assert.equal( value.length, 3, "Array length should equal 3" );
     });
-      
-    QUnit.test( "a basic test example", function( assert ) {
-      var value = "hello";
-      assert.equal( value, "hello", "We expect value to be hello" );
+      */
+    QUnit.test( "should return a prime number", function( assert ) {
+      function isPrime(element, index, array){
+          var start = 2;
+          while(start <= Math.sqrt(element)){
+              if(element % start++ < 1){
+                  return false;
+              }
+          }
+          return element > 1;
+      }
+      var value = [4, 5, 8, 12].find(isPrime);
+      assert.equal( value, 5, "We expect value to be 5" );
     });
     
   </script>
