@@ -67,6 +67,58 @@ exports.e6 = function(){
                      return Array.prototype.slice.call(arguments)
                  }
              }
+             
+             /*
+             Map an array with a passed in function. 
+             Each element in the array will run though the provided function and return 
+             a new array with the mapped values.
+             
+            function returnInt(element) {
+              return parseInt(element, 10);
+            }
+            
+            ['1', '2', '3'].map(returnInt); // [1, 2, 3]
+            // Actual result is an array of numbers (as expected)
+            
+            // A simpler way to achieve the above, while avoiding the "gotcha":
+            ['1', '2', '3'].map(Number); // [1, 2, 3]
+             
+             */
+             if(!Array.prototype.map){
+                 Array.prototype.map = function(predicate, thisArg){
+                     
+                     if(this === null){
+                        throw new TypeError(' this is null or not defined ');
+                     }
+                     if(typeof predicate !== 'function'){
+                         throw new TypeError(predicate + ' is not a function');
+                     }
+                     
+                     var    T, A, k,
+                            O = Object(this),
+                            len = O.length >>> 0;
+                     
+                     A = new Array(len);
+                     
+                     k = 0;
+                     
+                     while (k < len){
+                         var kValue, mappedValue;
+                         if(k in O){
+                             
+                             kValue = O[k];
+                             
+                             mappedValue = predicate.call(T, kValue, k, O);
+                             
+                             A[k] = mappedValue;
+                             
+                         }
+                         k++
+                     }
+                     
+                     return A;
+                 }
+             }
             
         }
     }
