@@ -39,8 +39,16 @@
       assert.equal( value.length, 3, "Array length should equal 3" );
     });
       */
+    QUnit.module( "E6 ARRAYS", {
+      //Setup an array we will be testing with for all tests under this module
+      setup: function(){
+        this.testArray = new Array(4,5,8,12,12);
+      }
+    });
+    
     QUnit.test( "should return a prime number", function( assert ) {
-      function isPrime(element, index, array){
+      //You do not have to name your anonymous function but it is good practice.
+      var value = this.testArray.find(function predicate(element, index, array){
           var start = 2;
           while(start <= Math.sqrt(element)){
               if(element % start++ < 1){
@@ -48,9 +56,14 @@
               }
           }
           return element > 1;
-      }
-      var value = [4, 5, 8, 12].find(isPrime);
+      });
+      
       assert.equal( value, 5, "We expect value to be 5" );
+    });
+    
+    QUnit.test( "should return an array withyout duplicates", function( assert ) {
+      var value = this.testArray.removeDuplicates();
+      assert.deepEqual( value, ["4","5","8","12"], "We expect the returned array to be void of duplicates" );
     });
     
   </script>

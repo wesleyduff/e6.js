@@ -39,6 +39,24 @@ exports.e6 = function(){
                     }
                     return undefined;
                   };
+            } /* END : Array find */
+            
+            /* Etend Array to add a Remove Duplicates from Array Function */
+            if(!Array.prototype.removeDuplicates){
+                Array.prototype.removeDuplicates = function () {
+                    var returnArray = [],
+                        obj = {};
+                    
+                    for (var i = 0; i < this.length; i++) {
+                        obj[this[i]] = 0;
+                    }
+                    
+                    for (i in obj) {
+                        returnArray.push(i);
+                    }
+                    
+                    return returnArray;
+                };
             }
             
         }
