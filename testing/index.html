@@ -76,6 +76,13 @@
       assert.deepEqual(typeof value[2], "object", "The last item should be an object");
     });
     
+    QUnit.test("Should map an array to a predicate. In this case change strings to a number", function(assert) {
+       assert.expect(2);
+       var value = ['1','2','3'].map(Number);
+       assert.ok(typeof value[0] === "number", "First item in the array should be a number");
+       assert.equal(value.length, 3, "The returned object should be an Array with a length of 3");
+    });
+    
   </script>
 </body>
 </html>
